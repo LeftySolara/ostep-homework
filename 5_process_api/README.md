@@ -16,3 +16,7 @@ In this homework, you are to gain some familiarity with the process management A
     - Both the parent and child processes can access the file descriptor at the same time.
 
     - If both processes attempt to write concurrently, one will overwrite the other.
+
+3. Write another program using `fork()`. The child process should print “hello”; the parent process should print “goodbye”. You should try to ensure that the child process always prints first; can you do this without calling `wait()` in the parent?
+
+    - This can be achieved by using `kill()` to send SIGSTOP and SIGCONT to the parent process.
