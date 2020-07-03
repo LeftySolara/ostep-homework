@@ -20,3 +20,7 @@ In this homework, you are to gain some familiarity with the process management A
 3. Write another program using `fork()`. The child process should print “hello”; the parent process should print “goodbye”. You should try to ensure that the child process always prints first; can you do this without calling `wait()` in the parent?
 
     - This can be achieved by using `kill()` to send SIGSTOP and SIGCONT to the parent process.
+
+4. Write a program that calls `fork()` and then calls some form of `exec()` to run the program `/bin/ls`. See if you can try all of the variants of `exec()`, including (on Linux) `execl()`, `execle()`, `execlp()`, `execv()`, `execvp()`, and `execvpe()`.  Why do you think there are so many variants of the same basic call?
+
+    - The variants allow for passing parameters in different forms to fit different situations. For example, some pass an array of strings to be used as environment variables for the new program being run. Others allow the passing of arguments as an array, which is useful when the number of parameters in the exec'ed process are variable. Some also search `PATH` if the given executable can't be found.
